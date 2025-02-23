@@ -3,7 +3,7 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     currentUser: JSON.parse(localStorage.getItem("currentUser")) || null,
-    boards: JSON.parse(localStorage.getItem("kanbanBoards")) || {} 
+    boards: JSON.parse(localStorage.getItem("kanbanBoards")) || {}
   },
   mutations: {
     setUser(state, user) {
@@ -26,7 +26,7 @@ export default createStore({
       if (!state.currentUser) return;
 
       const userBoards = state.boards[state.currentUser.username];
-      const newBoard = { id: Date.now(), name: boardName};
+      const newBoard = { id: Date.now(), name: boardName };
       userBoards.push(newBoard);
 
       localStorage.setItem("kanbanBoards", JSON.stringify(state.boards));
